@@ -14,7 +14,7 @@
   --color-ink: #1d2126;
   --color-ink-soft: #2b3138;
   --color-muted: #5a636e;
-  --color-subtle: #8a939d;
+  --color-subtle: #646d78; /* ≥ 4.5:1 on surface and canvas */
 
   --color-surface: #ffffff;
   --color-canvas: #f4f5f7;

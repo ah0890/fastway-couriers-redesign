@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="container-page relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
+          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-wide text-brand sm:text-xs sm:tracking-wider">
             <span aria-hidden className="size-1.5 rounded-full bg-brand" />
             Courier services across South Africa
           </p>

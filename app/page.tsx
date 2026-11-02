@@ -1,5 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import DepotFinder from "@/components/DepotFinder";
+import Footer from "@/components/Footer";
 import FranchiseSection from "@/components/FranchiseSection";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -18,6 +19,7 @@ export default function Home() {
         <FranchiseSection />
         <SocialProof />
       </main>
+      <Footer />
     </>
   );
 }

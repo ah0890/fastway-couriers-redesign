@@ -7,7 +7,7 @@ Portfolio/practice redesign of the Fastway Couriers South Africa homepage (refer
 SMEs, existing courier customers, parcel trackers, eCommerce businesses, prospective franchisees, people looking for a local depot.
 
 ## Current milestone
-Milestone 4 — Footer, accessibility and polish (next). Milestones 1–3 done.
+Milestone 5 — Verification and documentation (next). Milestones 1–4 done.
 
 ## Architecture
 - Next.js 16.4 App Router, TypeScript strict, Tailwind v4 via `@tailwindcss/turbopack` loader (configured in `next.config.ts`).

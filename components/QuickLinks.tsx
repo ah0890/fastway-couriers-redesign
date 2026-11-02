@@ -43,7 +43,7 @@ export default function QuickLinks() {
                     <Icon aria-hidden className="size-6" />
                   </span>
                   <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-                  <p className={`mt-2 flex-1 text-sm leading-relaxed ${featured ? "text-white/85" : "text-muted"}`}>
+                  <p className={`mt-2 flex-1 text-sm leading-relaxed ${featured ? "text-white" : "text-muted"}`}>
                     {description}
                   </p>
                   <span

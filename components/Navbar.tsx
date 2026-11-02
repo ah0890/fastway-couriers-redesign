@@ -33,7 +33,7 @@ export default function Navbar() {
         hamburgerRef.current?.focus();
       }
     };
-    const desktop = window.matchMedia("(min-width: 64rem)");
+    const desktop = window.matchMedia("(min-width: 80rem)");
     const onChange = () => desktop.matches && setMobileOpen(false);
 
     document.addEventListener("keydown", onKeyDown);
@@ -56,12 +56,12 @@ export default function Navbar() {
         Skip to main content
       </a>
 
-      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
-        <a href="#top" className="shrink-0 rounded-md" aria-label="Fastway Couriers – home">
+      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between gap-4 xl:h-[4.5rem]">
+        <a href="#top" className="shrink-0 rounded-md">
           <Logo />
         </a>
 
-        <ul ref={desktopNavRef} className="hidden items-center gap-1 lg:flex">
+        <ul ref={desktopNavRef} className="hidden items-center gap-1 xl:flex">
           {navGroups.map((group) => (
             <DesktopDropdown
               key={group.id}
@@ -72,17 +72,17 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <a
             href={scamAlertLink.href}
-            className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand-soft"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand-soft"
           >
             <ShieldAlert aria-hidden className="size-4" />
             {scamAlertLink.label}
           </a>
           <a
             href={primaryCta.href}
-            className="inline-flex items-center rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-hover"
+            className="inline-flex items-center whitespace-nowrap rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-hover"
           >
             {primaryCta.label}
           </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
         <button
           ref={hamburgerRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-canvas lg:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-canvas xl:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -143,7 +143,7 @@ function DesktopDropdown({
         aria-haspopup="true"
         aria-controls={menuId}
         onClick={() => onOpenChange(!isOpen)}
-        className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-canvas hover:text-ink ${
+        className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-canvas hover:text-ink ${
           isOpen ? "bg-canvas text-ink" : "text-ink-soft"
         }`}
       >
@@ -194,7 +194,7 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
-      className="overflow-hidden border-t border-line bg-surface lg:hidden"
+      className="overflow-hidden border-t border-line bg-surface xl:hidden"
     >
       <div className="container-page h-[calc(100dvh-4rem)] overflow-y-auto pb-6 pt-2">
         <ul className="divide-y divide-line">

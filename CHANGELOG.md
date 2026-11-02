@@ -2,6 +2,13 @@
 
 Only verified work is recorded here.
 
+## Milestone 4 — Footer, accessibility and polish
+
+- Responsive five-column footer from `data/footer.ts` (Depots, Why Fastway, Our services, Franchise, Terms), social links (Facebook, Instagram, LinkedIn as inline outline SVGs), copyright and the disclaimer "Practice redesign project – not affiliated with Fastway Couriers."
+- Accessibility fixes from an axe-core scan: darker `subtle` text token (≥ 4.5:1), solid white text on the featured red card, lighter brand tint for the logo on charcoal, logo link name now matches its visible text.
+- Desktop navigation now starts at 1280px (hamburger below) so nav labels never wrap; hero badge fits at 320px.
+- Verified on the production build (`next start`): axe-core WCAG 2.1 A/AA + best-practice scan reports 0 violations at 1280px and 375px; 43/43 scripted browser checks pass; only same-origin requests and no browser storage/cookies after using the tracking demo; `npm audit --omit=dev` reports 0 vulnerabilities; screenshots inspected at 320, 375, 768, 1024, 1280 and 1536px.
+
 ## Milestone 3 — Homepage content
 
 - Quick links: five lucide-icon cards from `data/quickLinks.ts` (featured "Become a customer" card, hover lift, focus ring, 3 + 2 desktop grid).

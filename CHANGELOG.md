@@ -2,6 +2,16 @@
 
 Only verified work is recorded here.
 
+## Milestone 3 — Homepage content
+
+- Quick links: five lucide-icon cards from `data/quickLinks.ts` (featured "Become a customer" card, hover lift, focus ring, 3 + 2 desktop grid).
+- About section ("At Fastway, our approach to courier services is unique") with five value points from `data/about.ts` and a "Get started with Fastway" CTA. No invented metrics.
+- Depot finder from `data/depots.ts`: 16 depots in 8 provinces, case-insensitive partial city search, province filter chips (`aria-pressed`), live result count, empty state, clear/reset.
+- Franchise section with the four benefits from `data/franchise.ts` and a "Franchise opportunities" CTA.
+- Social proof: "150,000+ customers" and clearly labelled neutral logo placeholders.
+- Shared `Reveal` (scroll fade-in, reduced-motion aware) and `SectionHeading` components.
+- Verified: lint, typecheck; browser checks for depot search (city, partial "port", case-insensitive, no results, clear, province filter), no overflow at 320–1536px, single h1 and ordered headings; section screenshots inspected at 375/768/1280px.
+
 ## Milestone 2 — Navigation and hero
 
 - Responsive navbar driven by `data/navigation.ts`: desktop dropdowns (click, Escape, outside click and focus-out close; `aria-expanded`/`aria-haspopup`/`aria-controls`), Scam Alert link, Become a Customer CTA, skip link.

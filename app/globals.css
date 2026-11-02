@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — change brand colours here and every component follows.
+ * Components only use these semantic utilities (bg-brand, text-ink, ...),
+ * never raw hex values.
+ */
+@theme {
+  --color-brand: #d6001c;
+  --color-brand-hover: #b00017;
+  --color-brand-soft: #fdecee;
+  --color-brand-ring: #f59aa6;
+
+  --color-ink: #1d2126;
+  --color-ink-soft: #2b3138;
+  --color-muted: #5a636e;
+  --color-subtle: #8a939d;
+
+  --color-surface: #ffffff;
+  --color-canvas: #f4f5f7;
+  --color-line: #e3e6ea;
+
+  --color-success: #127a3f;
+  --color-success-soft: #e7f5ec;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 4px 12px rgb(16 24 40 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(16 24 40 / 0.06), 0 16px 32px rgb(16 24 40 / 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  /* Keep anchored sections clear of the sticky header. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}

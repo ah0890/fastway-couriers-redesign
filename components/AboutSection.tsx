@@ -8,7 +8,7 @@ export default function AboutSection() {
     <section id="about" aria-labelledby="about-heading" className="bg-canvas py-16 sm:py-24">
       <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand">Why Fastway</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-brand-bright">Why Fastway</p>
           <h2 id="about-heading" className="mt-3 text-3xl font-bold tracking-tight text-ink text-balance sm:text-4xl">
             At Fastway, our approach to courier services is unique
           </h2>
@@ -19,7 +19,7 @@ export default function AboutSection() {
           ))}
           <a
             href={primaryCta.href}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ink-soft"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-deep"
           >
             Get started with Fastway
             <ArrowRight aria-hidden className="size-4" />
@@ -35,7 +35,7 @@ export default function AboutSection() {
                   index === aboutPoints.length - 1 ? "sm:col-span-2" : ""
                 }`}
               >
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-bright">
                   <Icon aria-hidden className="size-5" />
                 </span>
                 <div>

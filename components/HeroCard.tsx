@@ -43,9 +43,9 @@ export default function HeroCard() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-      className="w-full rounded-3xl border border-line bg-surface p-2 shadow-lift"
+      className="w-full"
     >
-      <div role="tablist" aria-label="Track or contact" className="grid grid-cols-2 gap-1 rounded-2xl bg-canvas p-1">
+      <div role="tablist" aria-label="Track or contact" className="on-dark flex gap-1">
         {tabs.map((tab) => {
           const selected = activeTab === tab.id;
           return (
@@ -62,18 +62,11 @@ export default function HeroCard() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setActiveTab(tab.id)}
               onKeyDown={onTabKeyDown}
-              className={`relative rounded-xl py-2.5 text-sm font-semibold transition-colors ${
-                selected ? "text-ink" : "text-muted hover:text-ink"
+              className={`min-w-28 rounded-t-xl px-6 py-3 text-base font-semibold transition-colors sm:min-w-36 ${
+                selected ? "bg-surface text-ink" : "bg-navy/85 text-white hover:bg-navy"
               }`}
             >
-              {selected && (
-                <motion.span
-                  layoutId="hero-tab-indicator"
-                  className="absolute inset-0 rounded-xl bg-surface shadow-card"
-                  transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
-                />
-              )}
-              <span className="relative">{tab.label}</span>
+              {tab.label}
             </button>
           );
         })}
@@ -83,7 +76,7 @@ export default function HeroCard() {
         id={`hero-panel-${activeTab}`}
         role="tabpanel"
         aria-labelledby={`hero-tab-${activeTab}`}
-        className="p-4 sm:p-6"
+        className="on-light rounded-b-2xl rounded-tr-2xl border border-line bg-surface p-4 shadow-lift sm:p-6"
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
@@ -155,15 +148,13 @@ function TrackPanel() {
 
   return (
     <form onSubmit={onSubmit} noValidate>
-      <h2 className="text-lg font-semibold text-ink">Track your parcel</h2>
-      <p className="mt-1 text-sm text-muted">Enter your parcel or waybill number to see its latest status.</p>
-
-      <label htmlFor="parcel-number" className="mt-5 block text-sm font-medium text-ink">
+      <h2 className="sr-only">Track your parcel</h2>
+      <label htmlFor="parcel-number" className="sr-only">
         Parcel number
       </label>
-      <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <div className="relative flex-1">
-          <PackageSearch aria-hidden className="pointer-events-none absolute left-3.5 top-1/2 size-5 -translate-y-1/2 text-subtle" />
+          <PackageSearch aria-hidden className="pointer-events-none absolute left-4 top-1/2 size-6 -translate-y-1/2 text-subtle" />
           <input
             ref={inputRef}
             id="parcel-number"
@@ -172,7 +163,7 @@ function TrackPanel() {
             inputMode="text"
             autoComplete="off"
             spellCheck={false}
-            placeholder="e.g. FW123456789"
+            placeholder="Enter tracking number"
             value={value}
             onChange={(event) => {
               setValue(event.target.value);
@@ -181,17 +172,17 @@ function TrackPanel() {
             disabled={isLoading}
             aria-invalid={hasError}
             aria-describedby={hasError ? "parcel-error" : "parcel-hint"}
-            className={`h-12 w-full rounded-xl border bg-surface pl-11 pr-4 text-base text-ink placeholder:text-subtle transition-colors focus:outline-none focus:ring-4 disabled:opacity-60 ${
+            className={`h-14 w-full rounded-xl border bg-surface pl-13 pr-4 text-lg text-ink placeholder:text-subtle transition-colors focus:outline-none focus:ring-4 disabled:opacity-60 ${
               hasError
-                ? "border-brand focus:ring-brand-soft"
-                : "border-line focus:border-ink-soft focus:ring-canvas"
+                ? "border-brand focus:ring-brand/20"
+                : "border-line focus:border-navy focus:ring-navy/15"
             }`}
           />
         </div>
         <button
           type="submit"
           disabled={isLoading}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-hover disabled:cursor-wait disabled:opacity-80"
+          className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-brand px-10 text-base font-semibold text-white transition-colors hover:bg-brand-hover disabled:cursor-wait disabled:opacity-80 sm:min-w-44"
         >
           {isLoading ? (
             <>
@@ -209,7 +200,7 @@ function TrackPanel() {
 
       <div aria-live="polite" className="mt-3 min-h-5 text-sm">
         {hasError ? (
-          <p id="parcel-error" className="flex items-start gap-1.5 font-medium text-brand">
+          <p id="parcel-error" className="flex items-start gap-1.5 font-medium text-brand-bright">
             <TriangleAlert aria-hidden className="mt-0.5 size-4 shrink-0" />
             {state.message}
           </p>
@@ -217,7 +208,7 @@ function TrackPanel() {
           <p className="text-muted">Looking up demo data…</p>
         ) : (
           <p id="parcel-hint" className="text-subtle">
-            Demo only — your input stays in this browser tab and is not stored or sent anywhere.
+            Demo only — try any 6–20 letters or digits, e.g. FW123456789. Nothing you type is stored or sent anywhere.
           </p>
         )}
       </div>
@@ -268,7 +259,7 @@ function MockResult({ parcelNumber, onReset }: { parcelNumber: string; onReset: 
       <button
         type="button"
         onClick={onReset}
-        className="mt-4 inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-canvas"
+        className="mt-4 inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-elevated"
       >
         <RotateCcw aria-hidden className="size-4" />
         Track another parcel
@@ -282,21 +273,21 @@ function ContactPanel() {
     <div>
       <h2 className="text-lg font-semibold text-ink">How can we help?</h2>
       <p className="mt-1 text-sm text-muted">Choose the quickest route to the right team.</p>
-      <ul className="mt-5 space-y-2">
+      <ul className="mt-5 grid gap-3 md:grid-cols-3">
         {contactOptions.map(({ title, description, href, icon: Icon }) => (
           <li key={title}>
             <a
               href={href}
-              className="group flex items-start gap-3 rounded-2xl border border-line p-4 transition-colors hover:border-brand/40 hover:bg-brand-soft/40"
+              className="group flex h-full items-start gap-3 rounded-2xl border border-line p-4 transition-colors hover:border-brand/40 hover:bg-brand-soft/40"
             >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand-bright">
                 <Icon aria-hidden className="size-5" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-semibold text-ink">{title}</span>
                 <span className="mt-0.5 block text-sm text-muted">{description}</span>
               </span>
-              <ArrowRight aria-hidden className="mt-1 size-4 shrink-0 text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-brand" />
+              <ArrowRight aria-hidden className="mt-1 size-4 shrink-0 text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-brand-bright" />
             </a>
           </li>
         ))}

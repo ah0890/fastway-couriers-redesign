@@ -48,10 +48,10 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/85">
+    <header className="on-dark sticky top-0 z-50 bg-navy shadow-md shadow-navy-deep/20">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
       >
         Skip to main content
       </a>
@@ -75,14 +75,14 @@ export default function Navbar() {
         <div className="hidden items-center gap-2 xl:flex">
           <a
             href={scamAlertLink.href}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand-soft"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
           >
             <ShieldAlert aria-hidden className="size-4" />
             {scamAlertLink.label}
           </a>
           <a
             href={primaryCta.href}
-            className="inline-flex items-center whitespace-nowrap rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-hover"
+            className="inline-flex items-center whitespace-nowrap rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-hover"
           >
             {primaryCta.label}
           </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
         <button
           ref={hamburgerRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-canvas xl:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 xl:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -143,14 +143,14 @@ function DesktopDropdown({
         aria-haspopup="true"
         aria-controls={menuId}
         onClick={() => onOpenChange(!isOpen)}
-        className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-canvas hover:text-ink ${
-          isOpen ? "bg-canvas text-ink" : "text-ink-soft"
+        className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10 hover:text-white ${
+          isOpen ? "bg-white/10 text-white" : "text-white/90"
         }`}
       >
         {group.label}
         <ChevronDown
           aria-hidden
-          className={`size-4 text-subtle transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          className={`size-4 text-white/70 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -164,13 +164,13 @@ function DesktopDropdown({
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="absolute left-0 top-full z-50 pt-2"
           >
-            <ul className="min-w-56 rounded-2xl border border-line bg-surface p-2 shadow-lift">
+            <ul className="on-light min-w-56 rounded-2xl border border-line bg-surface p-2 shadow-lift">
               {group.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={() => onOpenChange(false)}
-                    className="block rounded-xl px-3 py-2.5 text-sm text-ink-soft transition-colors hover:bg-canvas hover:text-brand"
+                    className="block rounded-xl px-3 py-2.5 text-sm text-ink-soft transition-colors hover:bg-elevated hover:text-brand-bright"
                   >
                     {link.label}
                   </a>
@@ -194,7 +194,7 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
-      className="overflow-hidden border-t border-line bg-surface xl:hidden"
+      className="on-light overflow-hidden border-t border-white/10 bg-surface xl:hidden"
     >
       <div className="container-page h-[calc(100dvh-4rem)] overflow-y-auto pb-6 pt-2">
         <ul className="divide-y divide-line">
@@ -231,7 +231,7 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
                           <a
                             href={link.href}
                             onClick={onNavigate}
-                            className="block rounded-lg py-2.5 pl-4 text-sm text-muted hover:text-brand"
+                            className="block rounded-lg py-2.5 pl-4 text-sm text-muted hover:text-brand-bright"
                           >
                             {link.label}
                           </a>
@@ -249,7 +249,7 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
           <a
             href={scamAlertLink.href}
             onClick={onNavigate}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/30 px-5 py-3 text-sm font-medium text-brand"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/30 px-5 py-3 text-sm font-medium text-brand-bright"
           >
             <ShieldAlert aria-hidden className="size-4" />
             {scamAlertLink.label}

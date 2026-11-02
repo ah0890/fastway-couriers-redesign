@@ -20,7 +20,7 @@ export default function SocialProof() {
           </h2>
           <p className="mt-4 text-lg text-muted">
             Trusted by{" "}
-            <strong className="text-2xl font-bold text-brand sm:text-3xl">{customerStat.value}</strong>{" "}
+            <strong className="text-2xl font-bold text-brand-bright sm:text-3xl">{customerStat.value}</strong>{" "}
             {customerStat.label}
           </p>
         </Reveal>
@@ -29,7 +29,7 @@ export default function SocialProof() {
           {logoPlaceholders.map(({ id, shape }, index) => (
             <li key={id}>
               <Reveal delay={index * 0.05}>
-                <div className="flex h-20 items-center justify-center gap-2.5 rounded-2xl border border-dashed border-line bg-canvas text-subtle">
+                <div className="flex h-20 items-center justify-center gap-2.5 rounded-2xl border border-dashed border-line bg-surface text-subtle">
                   <span aria-hidden className={shapeClasses[shape]} />
                   <span className="text-left text-[0.7rem] font-semibold uppercase leading-tight tracking-wider">
                     Customer

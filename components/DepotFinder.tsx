@@ -31,7 +31,7 @@ export default function DepotFinder() {
           description="Search by city or browse by province to find the depot that serves your area."
         />
 
-        <div className="mt-10 rounded-3xl border border-line bg-canvas p-4 sm:p-6">
+        <div className="mt-10 rounded-3xl border border-line bg-surface p-4 shadow-card sm:p-6">
           <label htmlFor="depot-search" className="block text-sm font-medium text-ink">
             Search depots by city
           </label>
@@ -46,7 +46,7 @@ export default function DepotFinder() {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               aria-describedby="depot-count"
-              className="h-12 w-full rounded-xl border border-line bg-surface pl-12 pr-12 text-base text-ink placeholder:text-subtle focus:border-ink-soft focus:outline-none focus:ring-4 focus:ring-line [&::-webkit-search-cancel-button]:hidden"
+              className="h-12 w-full rounded-xl border border-line bg-canvas pl-12 pr-12 text-base text-ink placeholder:text-subtle focus:border-brand-bright/60 focus:outline-none focus:ring-4 focus:ring-brand/20 [&::-webkit-search-cancel-button]:hidden"
             />
             {query && (
               <button
@@ -56,7 +56,7 @@ export default function DepotFinder() {
                   inputRef.current?.focus();
                 }}
                 aria-label="Clear search"
-                className="absolute right-2 top-1/2 inline-flex size-9 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-canvas hover:text-ink"
+                className="absolute right-2 top-1/2 inline-flex size-9 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-elevated hover:text-ink"
               >
                 <X aria-hidden className="size-4" />
               </button>
@@ -84,7 +84,7 @@ export default function DepotFinder() {
 
         {results.length === 0 ? (
           <div className="mt-4 flex flex-col items-center rounded-3xl border border-dashed border-line px-6 py-12 text-center">
-            <span className="flex size-12 items-center justify-center rounded-2xl bg-canvas text-muted">
+            <span className="flex size-12 items-center justify-center rounded-2xl bg-elevated text-muted">
               <SearchX aria-hidden className="size-6" />
             </span>
             <p className="mt-4 font-semibold text-ink">
@@ -94,7 +94,7 @@ export default function DepotFinder() {
             <button
               type="button"
               onClick={clearAll}
-              className="mt-5 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink hover:bg-canvas"
+              className="mt-5 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink hover:bg-elevated"
             >
               Clear search and filters
             </button>
@@ -110,7 +110,7 @@ export default function DepotFinder() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.2 }}
-                  className="rounded-3xl border border-line bg-surface p-5 shadow-card"
+                  className="rounded-3xl border border-line bg-surface p-5 shadow-card transition-colors hover:border-subtle/60"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="font-semibold text-ink">{p.name}</h3>
@@ -123,9 +123,9 @@ export default function DepotFinder() {
                       <li key={depot.city} data-depot>
                         <a
                           href={depot.href}
-                          className="group -mx-2 flex items-center gap-2.5 rounded-xl px-2 py-2 text-sm text-ink-soft transition-colors hover:bg-brand-soft hover:text-brand"
+                          className="group -mx-2 flex items-center gap-2.5 rounded-xl px-2 py-2 text-sm text-ink-soft transition-colors hover:bg-brand-soft hover:text-brand-bright"
                         >
-                          <MapPin aria-hidden className="size-4 shrink-0 text-brand" />
+                          <MapPin aria-hidden className="size-4 shrink-0 text-brand-bright" />
                           <span className="flex-1">{depot.city}</span>
                           <ChevronRight aria-hidden className="size-4 text-subtle opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" />
                         </a>
@@ -149,7 +149,7 @@ function FilterChip({ label, pressed, onClick }: { label: string; pressed: boole
       aria-pressed={pressed}
       onClick={onClick}
       className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
-        pressed ? "border-ink bg-ink text-white" : "border-line bg-surface text-ink-soft hover:border-ink-soft/40"
+        pressed ? "border-navy bg-navy text-white" : "border-line bg-surface text-ink-soft hover:border-subtle hover:text-ink"
       }`}
     >
       {label}

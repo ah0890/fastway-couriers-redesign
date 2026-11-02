@@ -80,6 +80,10 @@ The tracking form is a demonstration only.
 - Nothing is sent over the network or written to cookies or storage. The value lives only in React state and disappears on reload.
 - The Contact tab only contains links. It has no form and collects nothing.
 
+## Image credits
+
+- Hero photo: "White truck in motion blur at sunset" by Artem Balashevsky on [Pexels](https://www.pexels.com/photo/white-truck-in-motion-blur-at-sunset-18446790/), used under the [Pexels licence](https://www.pexels.com/license/). The photo shows an unbranded truck and is not Fastway imagery.
+
 ## Limitations
 
 - All links other than in-page anchors are placeholders (`#`). There are no sub-pages.

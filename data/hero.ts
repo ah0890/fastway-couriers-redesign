@@ -1,9 +1,12 @@
 import { Headset, MapPin, ShieldAlert, type LucideIcon } from "lucide-react";
 
+// Positioning points from the brief — no invented performance claims.
 export const heroHighlights: string[] = [
-  "Built for small and medium businesses",
+  "Cost-effective courier services",
+  "Reliable delivery for SMEs",
   "Online parcel tracking",
-  "Local depots across South Africa",
+  "Local depots nationwide",
+  "eCommerce & label tools",
 ];
 
 export interface MockTrackingEvent {

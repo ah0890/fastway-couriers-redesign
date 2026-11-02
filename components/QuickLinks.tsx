@@ -31,13 +31,13 @@ export default function QuickLinks() {
                   href={href}
                   className={`group flex h-full flex-col rounded-3xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lift sm:p-7 ${
                     featured
-                      ? "border-brand bg-brand text-white shadow-card"
-                      : "border-line bg-surface text-ink shadow-card hover:border-brand/30"
+                      ? "border-navy bg-gradient-to-br from-navy to-navy-deep text-white shadow-lift"
+                      : "border-line bg-surface text-ink shadow-card hover:border-brand/40"
                   }`}
                 >
                   <span
                     className={`flex size-12 items-center justify-center rounded-2xl ${
-                      featured ? "bg-white/15 text-white" : "bg-brand-soft text-brand"
+                      featured ? "bg-white/15 text-white" : "bg-brand-soft text-brand-bright"
                     }`}
                   >
                     <Icon aria-hidden className="size-6" />
@@ -48,7 +48,7 @@ export default function QuickLinks() {
                   </p>
                   <span
                     className={`mt-6 inline-flex items-center gap-1.5 text-sm font-semibold ${
-                      featured ? "text-white" : "text-brand"
+                      featured ? "text-white" : "text-brand-bright"
                     }`}
                   >
                     {cta}

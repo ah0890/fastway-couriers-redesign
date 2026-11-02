@@ -2,6 +2,19 @@
 
 Only verified work is recorded here.
 
+## Navy & red visual redesign
+
+Restyled to follow the reference site's look (navy, red and white; photo-style hero; tracking bar on the hero edge) without using any Fastway assets. An intermediate dark-theme experiment was superseded and never committed.
+
+- New tokens in `app/globals.css`: `navy`, `navy-deep`, `navy-soft`, `elevated`, `brand-bright` and `shadow-glow`; crimson brand red `#c8102e`.
+- Focus outlines follow the background (navy on light areas, white inside `.on-dark` areas).
+- Navy sticky header with white navigation, a Scam Alert link and a red "Become a Customer" pill. Dropdowns and the mobile menu are white panels.
+- Hero: navy backdrop with a free-licence stock photo of an unbranded white truck (`public/images/hero-truck.jpg`, Pexels) in a band that fades into the navy; centred headline, large red uppercase CTA and a two-column bullet list of positioning points from the brief. Served through `next/image` (resized, modern formats, blur placeholder) from the site itself.
+- Track/Contact as folder tabs on a full-width white bar that overlaps the bottom of the hero. Large single-row tracking input with the red Track button; the Contact options sit in three columns.
+- Navy accents: the featured quick-link card, the About CTA, the selected depot chip, the franchise panel (navy gradient with red icon tiles) and the footer (navy-deep).
+- `suppressHydrationWarning` on `<body>` so browser extensions (e.g. ColorZilla) that add attributes don't trigger a hydration error.
+- Verified on the production build: lint, typecheck, `npm test` 8/8; axe-core 0 violations at 1280px and 375px; 43/43 browser checks pass; only same-origin requests and no storage after using the demo; hero, full-page and tracking screenshots inspected at 375px and 1280px. axe cannot measure text contrast over the hero image, so that was judged visually: white text with a navy overlay and text shadow.
+
 ## Milestone 5 — Verification and documentation
 
 - Added unit tests for depot filtering (`tests/depots.test.ts`, Node's built-in runner, no new dependencies) and `npm test`.

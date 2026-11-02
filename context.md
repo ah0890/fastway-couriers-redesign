@@ -30,7 +30,11 @@ All five milestones complete. Waiting for the owner's completion signal before a
 
 ## Key decisions
 
-- Brand red `#d6001c` (white text ≈ 5.3:1). `subtle` text token `#646d78` (≥ 4.5:1 on white and canvas). On charcoal the logo uses `brand-ring`.
+- Visual style follows the reference site: navy `#0b2f8a` / `navy-deep` `#061d5c` for the header, hero wash, franchise panel and footer; crimson `#c8102e` for CTAs (white text ≈ 5.8:1); white/light-grey content sections. A dark theme was tried and dropped at the owner's request.
+- Hero photo is a Pexels stock image of an unbranded truck (`public/images/hero-truck.jpg`, Pexels licence, credited in README), not Fastway's photo; the logo is text only. Never copy Fastway imagery or logos.
+- `brand-bright` currently equals `brand` (kept as the token for red text). `subtle` `#626d84` is ≥ 4.5:1 on canvas, surface and elevated.
+- Focus outlines use `--focus-ring`: navy by default and white inside `.on-dark` (header, hero text, hero tabs, franchise panel, footer); `.on-light` resets it for white panels nested in navy areas.
+- `<body suppressHydrationWarning>`: browser extensions add attributes to `<body>` before hydration.
 - Desktop nav from `xl` (1280px). Below that, the hamburger menu, because five groups plus CTAs wrap at 1024px.
 - `framer-motion` package; `MotionConfig reducedMotion="user"` plus a CSS reduced-motion fallback.
 - Lucide v1 has no brand icons, so social icons are the former lucide outlines inlined (`components/SocialIcon.tsx`).

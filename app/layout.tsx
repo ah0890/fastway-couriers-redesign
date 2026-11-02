@@ -35,13 +35,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#d6001c",
+  themeColor: "#0b2f8a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-ZA" className={`${geistSans.variable} antialiased`}>
-      <body id="top" className="min-h-dvh font-sans">
+      {/* Browser extensions (e.g. ColorZilla) add attributes to <body> before hydration. */}
+      <body id="top" className="min-h-dvh font-sans" suppressHydrationWarning>
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

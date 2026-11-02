@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 // next/font self-hosts the font at build time — no runtime request to Google.
@@ -40,7 +41,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-ZA" className={`${geistSans.variable} antialiased`}>
-      <body className="min-h-dvh font-sans">{children}</body>
+      <body id="top" className="min-h-dvh font-sans">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

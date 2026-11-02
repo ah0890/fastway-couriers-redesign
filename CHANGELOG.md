@@ -2,6 +2,12 @@
 
 Only verified work is recorded here.
 
+## Milestone 5 — Verification and documentation
+
+- Added unit tests for depot filtering (`tests/depots.test.ts`, Node's built-in runner, no new dependencies) and `npm test`.
+- Completed README (features, setup, checks, mock tracking behaviour, limitations, deployment) and context.md.
+- Final verification: lint, typecheck, `npm test` (8/8) and production build pass; full browser and accessibility checks re-run on the production build.
+
 ## Milestone 4 — Footer, accessibility and polish
 
 - Responsive five-column footer from `data/footer.ts` (Depots, Why Fastway, Our services, Franchise, Terms), social links (Facebook, Instagram, LinkedIn as inline outline SVGs), copyright and the disclaimer "Practice redesign project – not affiliated with Fastway Couriers."
